@@ -17,29 +17,27 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      title: Text('Choose Option'),
-      content: Container(
+      title: Text('Select Transport Type'),
+      content: SizedBox(
         width: MediaQuery.of(context).size.width / 1.3,
-        height: MediaQuery.of(context).size.height / 6,
+        height: MediaQuery.of(context).size.height / 6.9,
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RadioListTile(
-              title: Text('Option 1'),
+              title: Text('Pickup by Geocycle team'),
+              contentPadding: EdgeInsets.zero,
               value: 1,
               groupValue: null,
-              onChanged: (value) {
-                // Handle radio button selection
-              },
+              onChanged: (value) {},
             ),
             RadioListTile(
-              title: Text('Option 2'),
+              title: Text('Send by own vehicle'),
+              contentPadding: EdgeInsets.zero,
               value: 2,
-              groupValue: null, // Provide appropriate group value
-              onChanged: (value) {
-                // Handle radio button selection
-              },
+              groupValue: null,
+              onChanged: (value) {},
             ),
           ],
         ),
