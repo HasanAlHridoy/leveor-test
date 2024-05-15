@@ -8,6 +8,4 @@ class AppColors {
   static get primaryColor => const Color(0xff003041);
 
   static get buttonColor => const Color(0xff01305B);
-
-  static get buttonInactiveColor => const Color(0xff43474F);
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:leveor_test/theme/colors/colors.dart';
 import 'package:leveor_test/theme/colors/styles.dart';
+import 'package:leveor_test/widgets/radio_tile_widget.dart';
 
 class DialogCardWidget extends StatefulWidget {
   const DialogCardWidget({super.key});
@@ -30,29 +31,19 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RadioListTile(
-              title: Text(
-                'Pickup by Geocycle team',
-                style: AppStyles.bodySmall,
-              ),
-              activeColor: AppColors.buttonColor,
-              contentPadding: EdgeInsets.zero,
+            RadioTileWidget(
+              tileName: 'Pickup by Geocycle team',
               value: 1,
-              groupValue: selectedValue,
+              selectedValue: selectedValue,
               onChanged: (value) {
                 selectedValue = value!;
                 setState(() {});
               },
             ),
-            RadioListTile(
-              title: Text(
-                'Send by own vehicle',
-                style: AppStyles.bodySmall,
-              ),
-              activeColor: AppColors.buttonColor,
-              contentPadding: EdgeInsets.zero,
+            RadioTileWidget(
+              tileName: 'Send by own vehicle',
               value: 2,
-              groupValue: selectedValue,
+              selectedValue: selectedValue,
               onChanged: (value) {
                 selectedValue = value!;
                 setState(() {});
@@ -70,7 +61,7 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
                 backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
                 foregroundColor: MaterialStateProperty.all<Color>(AppColors.buttonColor)),
             onPressed: () {
-              // Handle action button 1 press
+              Navigator.pop(context);
             },
             child: Text(
               'Cancel',
@@ -82,7 +73,9 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           height: 44,
           width: 83,
           child: ElevatedButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             style: AppStyles.buttonStyle,
             child: Text(
               'Ok',
