@@ -10,6 +10,8 @@ class DialogCardWidget extends StatefulWidget {
 }
 
 class _DialogCardWidgetState extends State<DialogCardWidget> {
+  int selectedValue = 0;
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
@@ -27,17 +29,26 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           children: [
             RadioListTile(
               title: Text('Pickup by Geocycle team'),
+              activeColor: AppColors.buttonColor,
+              fillColor: WidgetStateProperty.all<Color>(AppColors.buttonInactiveColor),
               contentPadding: EdgeInsets.zero,
               value: 1,
-              groupValue: null,
-              onChanged: (value) {},
+              groupValue: selectedValue,
+              onChanged: (value) {
+                selectedValue = value!;
+                setState(() {});
+              },
             ),
             RadioListTile(
               title: Text('Send by own vehicle'),
+              activeColor: AppColors.buttonColor,
               contentPadding: EdgeInsets.zero,
               value: 2,
-              groupValue: null,
-              onChanged: (value) {},
+              groupValue: selectedValue,
+              onChanged: (value) {
+                selectedValue = value!;
+                setState(() {});
+              },
             ),
           ],
         ),
@@ -47,9 +58,7 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           height: 44,
           width: 87,
           child: TextButton(
-            style: AppStyles.buttonStyle.copyWith(
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
-                foregroundColor: MaterialStateProperty.all<Color>(AppColors.buttonColor)),
+            style: AppStyles.buttonStyle.copyWith(backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent), foregroundColor: MaterialStateProperty.all<Color>(AppColors.buttonColor)),
             onPressed: () {
               // Handle action button 1 press
             },
