@@ -19,7 +19,10 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),
       ),
-      title: Text('Select Transport Type'),
+      title: Text(
+        'Select Transport Type',
+        style: AppStyles.bodyLarge,
+      ),
       content: SizedBox(
         width: MediaQuery.of(context).size.width / 1.3,
         height: MediaQuery.of(context).size.height / 6.9,
@@ -28,9 +31,11 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             RadioListTile(
-              title: Text('Pickup by Geocycle team'),
+              title: Text(
+                'Pickup by Geocycle team',
+                style: AppStyles.bodySmall,
+              ),
               activeColor: AppColors.buttonColor,
-              fillColor: WidgetStateProperty.all<Color>(AppColors.buttonInactiveColor),
               contentPadding: EdgeInsets.zero,
               value: 1,
               groupValue: selectedValue,
@@ -40,7 +45,10 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
               },
             ),
             RadioListTile(
-              title: Text('Send by own vehicle'),
+              title: Text(
+                'Send by own vehicle',
+                style: AppStyles.bodySmall,
+              ),
               activeColor: AppColors.buttonColor,
               contentPadding: EdgeInsets.zero,
               value: 2,
@@ -58,11 +66,16 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           height: 44,
           width: 87,
           child: TextButton(
-            style: AppStyles.buttonStyle.copyWith(backgroundColor: WidgetStateProperty.all<Color>(Colors.transparent), foregroundColor: MaterialStateProperty.all<Color>(AppColors.buttonColor)),
+            style: AppStyles.buttonStyle.copyWith(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
+                foregroundColor: MaterialStateProperty.all<Color>(AppColors.buttonColor)),
             onPressed: () {
               // Handle action button 1 press
             },
-            child: Text('Cancel'),
+            child: Text(
+              'Cancel',
+              style: AppStyles.bodySmallForButton1,
+            ),
           ),
         ),
         SizedBox(
@@ -71,7 +84,10 @@ class _DialogCardWidgetState extends State<DialogCardWidget> {
           child: ElevatedButton(
             onPressed: () {},
             style: AppStyles.buttonStyle,
-            child: const Text('Ok'),
+            child: Text(
+              'Ok',
+              style: AppStyles.bodySmallForButton2,
+            ),
           ),
         ),
       ],
